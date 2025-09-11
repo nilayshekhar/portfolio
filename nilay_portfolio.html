@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilay Shekhar - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00ff00;
+            --secondary-color: #00cc00;
+            --accent-color: #ffff00;
+            --error-color: #ff4444;
+            --bg-primary: #000000;
+            --bg-secondary: #111111;
+            --text-primary: #00ff00;
+            --text-secondary: #00cc00;
+            --text-muted: #666666;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-primary);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--bg-primary);
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .terminal-prompt {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .hero .description {
+            font-size: 1rem;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .command-line {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            margin: 2rem 0;
+            font-family: inherit;
+        }
+
+        .command-line::before {
+            content: '$ ';
+            color: var(--primary-color);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: inherit;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            color: var(--bg-primary);
+        }
+
+        .btn-secondary {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            color: var(--bg-primary);
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '# ';
+            color: var(--text-muted);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .project-status {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-color);
+            padding: 0.2rem 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech-title {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tech-item {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-link:hover {
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+        }
+
+        .certificate-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-issuer {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .certificate-link:hover {
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* GitHub Section */
+        .github-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .github-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-methods {
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-method:last-child {
+            border-bottom: none;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+            min-width: 100px;
+        }
+
+        .contact-value {
+            color: var(--primary-color);
+        }
+
+        .contact-value a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .contact-value a:hover {
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .github-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--primary-color);
+            color: var(--bg-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">~/nilay.shekhar</div>
+            <ul class="nav-links">
+                <li><a href="#home">home</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#certificates">certificates</a></li>
+                <li><a href="#github">github</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="terminal-prompt">nilay@developer</div>
+            <h1>./introduction</h1>
+            <p class="subtitle">Full Stack Developer & Software Engineer</p>
+            <p class="description">
+                I build intelligent AI solutions and GenAI applications that solve complex business problems. 
+                Experienced in machine learning, natural language processing, and creating scalable AI systems 
+                with cloud deployment and real-time monitoring capabilities.
+            </p>
+            <div class="command-line">ls -la skills/</div>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn">projects</a>
+                <a href="#contact" class="btn btn-secondary">whoami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">projects</h2>
+                <p class="section-subtitle">AI-driven solutions showcasing machine learning and GenAI expertise</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">excel-xslt-generator</h3>
+                        <span class="project-status"><></span>
+                    </div>
+                    <p class="project-description">
+                        AI-driven Excel–XSLT Generator using GenAIHub and LangChain, reducing issue turnaround time by 30%. 
+                        Built a Python pipeline to collect, embed, and store Excel data in ChromaDB with GPT-4 integration 
+                        for automated XSLT code generation.
+                    </p>
+                    <div class="project-tech">
+                        <div class="project-tech-title">technologies:</div>
+                        <div class="tech-list">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">GPT-4</span>
+                            <span class="tech-item">ChromaDB</span>
+                            <span class="tech-item">LangChain</span>
+                            <span class="tech-item">GCP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">document-qna-chatbot</h3>
+                        <span class="project-status">deployed</span>
+                    </div>
+                    <p class="project-description">
+                        Generic Document QnA Chatbot capable of reading any human-readable file and storing content 
+                        in a vector database. Features SAP Design Guidelines UI with text-embedding-ada-002 and 
+                        GPT-4 integration for intelligent responses.
+                    </p>
+                    <div class="project-tech">
+                        <div class="project-tech-title">technologies:</div>
+                        <div class="tech-list">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">GPT-4</span>
+                            <span class="tech-item">ChromaDB</span>
+                            <span class="tech-item">OpenAI</span>
+                            <span class="tech-item">GCP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">smart-procurement-clustering</h3>
+                        <span class="project-status">poc</span>
+                    </div>
+                    <p class="project-description">
+                        AI-driven vendor segmentation system using machine learning clustering techniques. 
+                        Implemented all-MiniLM-L6-v2 embeddings with KMeans and DBSCAN for vendor pattern 
+                        detection and anomaly identification with Silhouette Score evaluation.
+                    </p>
+                    <div class="project-tech">
+                        <div class="project-tech-title">technologies:</div>
+                        <div class="tech-list">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Scikit-learn</span>
+                            <span class="tech-item">DBSCAN</span>
+                            <span class="tech-item">KMeans</span>
+                            <span class="tech-item">GCP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">certificates</h2>
+                <p class="section-subtitle">Professional certifications in AI/ML and data science</p>
+            </div>
+            
+            <div class="certificates-grid">
+                <div class="certificate-item">
+                    <h3 class="certificate-title">CS50's Introduction to Programming with Python</h3>
+                    <div class="certificate-issuer">Harvard University</div>
+                    <div class="certificate-date">Completed: 2023</div>
+                    <a href="https://certificates.cs50.io/15a542cb-414a-48da-a8d6-944f6f5bf5ea.pdf?size=letter" class="certificate-link" target="_blank">view certificate</a>
+                </div>
+
+                <div class="certificate-item">
+                    <h3 class="certificate-title">Machine Learning A-Z™: AI, Python & R + ChatGPT Bonus</h3>
+                    <div class="certificate-issuer">Udemy</div>
+                    <div class="certificate-date">Completed: 2023</div>
+                    <a href="https://www.udemy.com/certificate/UC-a7a8004b-3325-49b0-8f27-55094fe6f3fe/" class="certificate-link" target="_blank">view certificate</a>
+                </div>
+
+                <div class="certificate-item">
+                    <h3 class="certificate-title">The Data Science Course 2023: Complete Data Science Bootcamp</h3>
+                    <div class="certificate-issuer">Udemy</div>
+                    <div class="certificate-date">Completed: 2023</div>
+                    <a href="https://www.udemy.com/certificate/UC-a44d65d9-2db8-4c7b-8cd2-b77da67254bc/" class="certificate-link" target="_blank">view certificate</a>
+                </div>
+
+                <div class="certificate-item">
+                    <h3 class="certificate-title">How to Use the Machine Learning Cockpit for SAP Business ByDesign</h3>
+                    <div class="certificate-issuer">SAP</div>
+                    <div class="certificate-date">Completed: 2023</div>
+                    <a href="https://open.sap.com/verify/xehiz-pumiz-tuluk-segag-mapen" class="certificate-link" target="_blank">verify certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">github</h2>
+                <p class="section-subtitle">Open source contributions and coding activity</p>
+            </div>
+
+            <div class="github-link">
+                <a href="https://github.com/nilayshekhar" class="btn" target="_blank">view github profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">contact</h2>
+                <p class="section-subtitle">Get in touch for AI/ML collaborations or opportunities</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-label">email:</div>
+                        <div class="contact-value">
+                            <a href="mailto:nilayshekhar16@gmail.com">nilayshekhar16@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-label">linkedin:</div>
+                        <div class="contact-value">
+                            <a href="https://www.linkedin.com/in/nilayshekhar/" target="_blank">linkedin.com/in/nilayshekhar</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-label">github:</div>
+                        <div class="contact-value">
+                            <a href="https://github.com/nilayshekhar" target="_blank">github.com/nilayshekhar</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-label">location:</div>
+                        <div class="contact-value">Bengaluru, India</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Nilay Shekhar. Built with vanilla HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple typing effect for command line
+        const commandLine = document.querySelector('.command-line');
+        
+        function typeCommand() {
+            commandLine.textContent = '$ ';
+            const command = 'ls -la skills';
+            let i = 0;
+            
+            const typing = setInterval(() => {
+                if (i < command.length) {
+                    commandLine.textContent += command.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                    setTimeout(() => {
+                        commandLine.innerHTML = '$ ' + command + '<br>Python<br>Machine Learning<br>GenAI<br>LangChain<br>ChromaDB';
+                    }, 1000);
+                }
+            }, 100);
+        }
+
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeCommand, 2000);
+        });
+    </script>
+</body>
+</html>
