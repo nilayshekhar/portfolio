@@ -121,7 +121,7 @@
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             padding: 1rem;
-            margin: 2rem 0;
+            margin: 2rem 0 4rem 0;
             font-family: inherit;
         }
 
@@ -459,6 +459,7 @@
                 <li><a href="#projects">projects</a></li>
                 <li><a href="#certificates">certificates</a></li>
                 <li><a href="#github">github</a></li>
+                <li><a href="#leetcode">leetcode</a></li>
                 <li><a href="#contact">contact</a></li>
             </ul>
         </div>
@@ -494,16 +495,82 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">excel-xslt-generator</h3>
-                        <span class="project-status"><></span>
+                        <h3 class="project-title project-title-yellow">Excel–XSLT Generator – GenAI Assistant</h3>
+                                <style>
+                                    .project-bullets {
+                                        list-style-type: square;
+                                        padding-left: 1.5em;
+                                    }
+                                    .project-bullets li {
+                                        color: var(--accent-color);
+                                        margin-bottom: 0.5em;
+                                        position: relative;
+                                    }
+                                    .project-bullets li::marker {
+                                        color: var(--accent-color);
+                                        font-size: 1.1em;
+                                    }
+                                    .project-description.project-bullets li {
+                                        color: var(--text-secondary);
+                                    }
+                                    .project-tech-yellow {
+                                        color: var(--accent-color) !important;
+                                    }
+                                    .project-title-yellow {
+                                        color: var(--accent-color) !important;
+                                    }
+                                </style>
+                        <span class="project-status">poc</span>
                     </div>
-                    <p class="project-description">
-                        AI-driven Excel–XSLT Generator using GenAIHub and LangChain, reducing issue turnaround time by 30%. 
-                        Built a Python pipeline to collect, embed, and store Excel data in ChromaDB with GPT-4 integration 
-                        for automated XSLT code generation.
-                    </p>
+                    <ul class="project-description project-bullets">
+                        <li>Built an AI-driven Excel–XSLT Generator using GenAIHub and LangChain, reducing issue turnaround time by 30%.</li>
+                        <li>Developed a Python pipeline to collect, embed (text-embedding-ada-002), and store Excel data in ChromaDB.</li>
+                        <li>Integrated GPT-4 to generate XSLT code by reviewing Excel data.</li>
+                        <li>Automated data collection and tracking through CI/CD, Jenkins, and cron jobs.</li>
+                        <li>Monitored token usage and costs, delivering insights for SAP leadership.</li>
+                        <li>Designed a scalable deployment architecture on GCP team environments.</li>
+                    </ul>
+                            <style>
+                                .project-bullets {
+                                    list-style-type: square;
+                                    padding-left: 1.5em;
+                                }
+                                .project-bullets li {
+                                    color: var(--accent-color);
+                                    margin-bottom: 0.5em;
+                                    position: relative;
+                                }
+                                .project-bullets li::marker {
+                                    color: var(--accent-color);
+                                    font-size: 1.1em;
+                                }
+                                .project-description.project-bullets li {
+                                    color: var(--text-secondary);
+                                }
+                            </style>
                     <div class="project-tech">
-                        <div class="project-tech-title">technologies:</div>
+                        <div class="project-tech-title project-tech-yellow">technologies:</div>
+                                <style>
+                                    .project-bullets {
+                                        list-style-type: square;
+                                        padding-left: 1.5em;
+                                    }
+                                    .project-bullets li {
+                                        color: var(--accent-color);
+                                        margin-bottom: 0.5em;
+                                        position: relative;
+                                    }
+                                    .project-bullets li::marker {
+                                        color: var(--accent-color);
+                                        font-size: 1.1em;
+                                    }
+                                    .project-description.project-bullets li {
+                                        color: var(--text-secondary);
+                                    }
+                                    .project-tech-yellow {
+                                        color: var(--accent-color) !important;
+                                    }
+                                </style>
                         <div class="tech-list">
                             <span class="tech-item">Python</span>
                             <span class="tech-item">GPT-4</span>
@@ -516,16 +583,17 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">document-qna-chatbot</h3>
+                        <h3 class="project-title project-title-yellow">Generic Document QnA Chatbot – GenAI</h3>
                         <span class="project-status">deployed</span>
                     </div>
-                    <p class="project-description">
-                        Generic Document QnA Chatbot capable of reading any human-readable file and storing content 
-                        in a vector database. Features SAP Design Guidelines UI with text-embedding-ada-002 and 
-                        GPT-4 integration for intelligent responses.
-                    </p>
+                    <ul class="project-description project-bullets">
+                        <li>Built a chatbot capable of reading any human-readable file and storing its content in a vector database.</li>
+                        <li>Implemented UI based on SAP Design Guidelines.</li>
+                        <li>Used text-embedding-ada-002 to embed data in ChromaDB, and integrated GPT-4 for response generation using RAG.</li>
+                        <li>Deployed the model on GCP Machines with real-time monitoring and insights.</li>
+                    </ul>
                     <div class="project-tech">
-                        <div class="project-tech-title">technologies:</div>
+                        <div class="project-tech-title project-tech-yellow">technologies:</div>
                         <div class="tech-list">
                             <span class="tech-item">Python</span>
                             <span class="tech-item">GPT-4</span>
@@ -538,22 +606,49 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">smart-procurement-clustering</h3>
+                        <h3 class="project-title project-title-yellow">Smart Procurement Clustering – AI-Driven Vendor Segmentation</h3>
                         <span class="project-status">poc</span>
                     </div>
-                    <p class="project-description">
-                        AI-driven vendor segmentation system using machine learning clustering techniques. 
-                        Implemented all-MiniLM-L6-v2 embeddings with KMeans and DBSCAN for vendor pattern 
-                        detection and anomaly identification with Silhouette Score evaluation.
-                    </p>
+                    <ul class="project-description project-bullets">
+                        <li>Developed a POC on GCP VM for AI-based procurement insights.</li>
+                        <li>Used all-MiniLM-L6-v2 embeddings with KMeans and DBSCAN for vendor pattern detection and anomaly identification.</li>
+                        <li>Evaluated clusters with Silhouette Score to detect vendor patterns and anomalies.</li>
+                    </ul>
                     <div class="project-tech">
-                        <div class="project-tech-title">technologies:</div>
+                        <div class="project-tech-title project-tech-yellow">technologies:</div>
                         <div class="tech-list">
                             <span class="tech-item">Python</span>
                             <span class="tech-item">Scikit-learn</span>
                             <span class="tech-item">DBSCAN</span>
                             <span class="tech-item">KMeans</span>
                             <span class="tech-item">GCP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title project-title-yellow">Appointment Booking System – (Spring boot, React)</h3>
+                        <span class="project-status">poc</span>
+                    </div>
+                    <ul class="project-description project-bullets">
+                        <li>Full-stack web application for appointment management, supporting admin and user roles.</li>
+                        <li>Technologies Used: Java (Spring Boot), React.js, GraphQL, Selenium, Maven, Docker, Kubernetes.</li>
+                        <li>Backend: RESTful and GraphQL APIs with Spring Boot; frontend built using React.js with modular components.</li>
+                        <li>DevOps: Dockerized backend, Created K8's, automated unit/integration/end-to-end tests.</li>
+                        <li>Deployment: Application deployed on AWS for scalable cloud hosting.</li>
+                    </ul>
+                    <div class="project-tech">
+                        <div class="project-tech-title project-tech-yellow">technologies:</div>
+                        <div class="tech-list">
+                            <span class="tech-item">Java (Spring Boot)</span>
+                            <span class="tech-item">React.js</span>
+                            <span class="tech-item">GraphQL</span>
+                            <span class="tech-item">Selenium</span>
+                            <span class="tech-item">Maven</span>
+                            <span class="tech-item">Docker</span>
+                            <span class="tech-item">Kubernetes</span>
+                            <span class="tech-item">AWS</span>
                         </div>
                     </div>
                 </div>
@@ -614,6 +709,20 @@
             </div>
         </div>
     </section>
+
+        <!-- LeetCode Section -->
+        <section id="leetcode" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">leetcode</h2>
+                    <p class="section-subtitle">Competitive programming and coding practice</p>
+                </div>
+
+                <div class="github-link">
+                    <a href="https://leetcode.com/u/nilayshekhar_/" class="btn" target="_blank">view leetcode profile</a>
+                </div>
+            </div>
+        </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">
@@ -677,7 +786,7 @@
             commandLine.textContent = '$ ';
             const command = 'ls -la skills';
             let i = 0;
-            
+
             const typing = setInterval(() => {
                 if (i < command.length) {
                     commandLine.textContent += command.charAt(i);
@@ -685,7 +794,25 @@
                 } else {
                     clearInterval(typing);
                     setTimeout(() => {
-                        commandLine.innerHTML = '$ ' + command + '<br>Python<br>Machine Learning<br>GenAI<br>LangChain<br>ChromaDB';
+                        commandLine.innerHTML = '$ ' + command +
+                            '<br>Python' +
+                            '<br>Java Spring Boot' +
+                            '<br>Generative AI' +
+                            '<br>Machine Learning' +
+                            '<br>HuggingFace' +
+                            '<br>FastAPI' +
+                            '<br>SQL' +
+                            '<br>Django' +
+                            '<br>Docker' +
+                            '<br>Kubernetes' +
+                            '<br>GitHub' +
+                            '<br>Cucumber' +
+                            '<br>Selenium' +
+                            '<br>CI/CD' +
+                            '<br>GitHub Actions' +
+                            '<br>GenAI' +
+                            '<br>LangChain' +
+                            '<br>ChromaDB';
                     }, 1000);
                 }
             }, 100);
