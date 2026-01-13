@@ -57,7 +57,7 @@
         .logo {
             font-size: 1.2rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .nav-links {
@@ -127,7 +127,11 @@
 
         .command-line::before {
             content: '$ ';
-            color: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        .command-line .cmd {
+            color: var(--accent-color);
         }
 
         .cta-buttons {
@@ -468,6 +472,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <br>
             <div class="terminal-prompt">nilay@developer</div>
             <h1>./introduction</h1>
             <p class="subtitle">Full Stack Developer & Software Engineer</p>
@@ -690,7 +695,7 @@
                     <h3 class="certificate-title">How to Use the Machine Learning Cockpit for SAP Business ByDesign</h3>
                     <div class="certificate-issuer">SAP</div>
                     <div class="certificate-date">Completed: 2023</div>
-                    <a href="https://open.sap.com/verify/xehiz-pumiz-tuluk-segag-mapen" class="certificate-link" target="_blank">verify certificate</a>
+                    <a href="https://open.sap.com/verify/xehiz-pumiz-tuluk-segag-mapen" class="certificate-link" target="_blank">view certificate</a>
                 </div>
             </div>
         </div>
@@ -729,7 +734,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">contact</h2>
-                <p class="section-subtitle">Get in touch for AI/ML collaborations or opportunities</p>
+                <p class="section-subtitle">Get in touch</p>
             </div>
             
             <div class="contact-info">
@@ -764,7 +769,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Nilay Shekhar. Built with vanilla HTML, CSS, and JavaScript.</p>
+            <p>© 2026 Nilay Shekhar. Built with vanilla HTML, CSS, and JavaScript.</p>
         </div>
     </footer>
 
@@ -783,37 +788,40 @@
         const commandLine = document.querySelector('.command-line');
         
         function typeCommand() {
-            commandLine.textContent = '$ ';
+            // create a span for the command so it can be colored while typing
+            commandLine.innerHTML = '<span class="cmd">$ </span>';
+            const cmdSpan = commandLine.querySelector('.cmd');
             const command = 'ls -la skills';
             let i = 0;
 
             const typing = setInterval(() => {
                 if (i < command.length) {
-                    commandLine.textContent += command.charAt(i);
+                    cmdSpan.textContent += command.charAt(i);
                     i++;
                 } else {
                     clearInterval(typing);
                     setTimeout(() => {
-                        commandLine.innerHTML = '$ ' + command +
+                        // final content: keep the command span and append the rest of the output
+                        commandLine.innerHTML = '<span class="cmd">$ ' + command + '</span>' +
                             '<br>Python' +
+                            '<br>Java' +
                             '<br>Java Spring Boot' +
-                            '<br>Generative AI' +
                             '<br>Machine Learning' +
+                            '<br>Generative AI' +
+                            '<br>LangChain' +
+                            '<br>ChromaDB' +
                             '<br>HuggingFace' +
+                            '<br>Django' +
                             '<br>FastAPI' +
                             '<br>SQL' +
-                            '<br>Django' +
                             '<br>Docker' +
                             '<br>Kubernetes' +
-                            '<br>GitHub' +
+                            '<br>CI/CD' +
                             '<br>Cucumber' +
                             '<br>Selenium' +
-                            '<br>CI/CD' +
-                            '<br>GitHub Actions' +
-                            '<br>GenAI' +
-                            '<br>LangChain' +
-                            '<br>ChromaDB';
-                    }, 1000);
+                            '<br>GitHub' +
+                            '<br>GitHub Actions';
+                    }, 2000);
                 }
             }, 100);
         }
